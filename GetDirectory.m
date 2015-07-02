@@ -1,6 +1,6 @@
 function Directory=GetDirectory(DirectoryPath)
 
-M=importdata([DirectoryPath, '\Directory.xlsx'])
+M=importdata([DirectoryPath, 'Directory.xlsx'])
 M
 M.textdata
 M=M.textdata

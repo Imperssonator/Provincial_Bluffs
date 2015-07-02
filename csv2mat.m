@@ -9,7 +9,16 @@ function [Waves,RawAbs] = csv2mat(FilePath)
 
 %% Open file and read in data as strings
 
+Waves = 0;
+RawAbs = 0;
+
+disp(FilePath)
 fid = fopen(FilePath);
+if fid==-1
+    disp('File does not exist')
+    return
+end
+
 C = textscan(fid,'%s',3,'Delimiter',',');
 Num = textscan(fid,'%s%s%s','Delimiter',',');
 fclose(fid);
