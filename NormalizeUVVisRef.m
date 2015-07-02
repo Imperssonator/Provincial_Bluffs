@@ -1,4 +1,4 @@
-function [Abs]=NormalizeUVVis(DirectoryPath, MaxWave)
+function [MaxWave, Abs]=NormalizeUVVisRef(DirectoryPath)
 
 %Need to specify file names format
 load(DirectoryPath);
@@ -6,13 +6,18 @@ load(DirectoryPath);
 %Let there be an input file that reads the wavelength (Waveref) and absorbance
 %(Absref).
 
-%Find corresponding index MaxWave
-k=find(Wave==MaxWave)
+%Find the maximum value of abs
 
-%Find MaxAbs based on this index
-MaxAbs=Abs(k)
+MaxAbs=max(Abs)
+
+%Find corresponding index of this max abs
+k=find(Abs==MaxAbs)
+
 %Find corresponding value of Waveref
+
+MaxWave=Wave(k)
 
 Abs=Abs./MaxAbs
 
 end
+
