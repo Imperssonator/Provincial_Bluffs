@@ -1,4 +1,4 @@
-function out = PlotAllUV(StructPath)
+function [] = PlotAllUV(StructPath)
 
 load(StructPath)
 

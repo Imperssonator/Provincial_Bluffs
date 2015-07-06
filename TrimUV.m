@@ -5,7 +5,7 @@ load(StructPath);
 for i = 1:length(UVS)
     RawAbsi = UVS(i).RawAbs;
     RawWavesi = UVS(i).Waves;
-    TrimLow = find(RawWavesi==300);
+    TrimLow = find(RawWavesi==350);
     TrimHigh = find(RawWavesi==700);
     
     TrimWavesi = RawWavesi(TrimLow:TrimHigh);
