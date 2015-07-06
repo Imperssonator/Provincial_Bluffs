@@ -5,7 +5,7 @@ function GMM = GMFit(X,Y,InitParams)
 
 % Init Params is [3 x k], where k is the number of peaks to fit, and the 3
 % parameters are:
-% [Mixing proportion, peak center (wavelength), peak width]
+% [Mixing proportion; peak center (wavelength); peak width]
 
 % GMM is a structure with the outputs of the nonlinear fit
 
@@ -16,12 +16,12 @@ InitParamVec = InitParams(:);
 
 GMFun = @(Params,W) GaussPeak(Params,k,W);
 
-[BETA,R,J,COVB,MSE] = nlinfit(X,Y,GMFun,InitParamVec);
+[Params,R,J,COVB,MSE] = nlinfit(X,Y,GMFun,InitParamVec);
 
-FitAbs = GaussPeak(BETA,k,X);
-BETA = reshape(BETA,3,k);
+FitAbs = GaussPeak(Params,k,X);
+Params = reshape(Params,3,k);
 
-GMM.Beta = BETA;
+GMM.Params = Params;
 GMM.R = R;
 GMM.MSE = MSE;
 GMM.FitAbs = FitAbs;

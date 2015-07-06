@@ -14,11 +14,19 @@ else
     DirectoryPath = ['/Users/Imperssonator/Documents/MATLAB/Provincial_Bluffs/' FolderName '/'];
 end
 
-%Read excel file of file names to populate the directory
-Directory=GetDirectory(DirectoryPath)
+cd(FolderName)
 
-for i=1:length(Directory)
-Directory(i)=strcat(DirectoryPath, Directory(i))
+D = dir('*.csv');
+
+cd ..
+
+Files = {D(:).name}';
+
+NumFiles = length(Files);
+Directory = {};
+
+for i = 1:NumFiles
+    Directory{i,1} = [DirectoryPath Files{i,1}];
 end
 
 end
