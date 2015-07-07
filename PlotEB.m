@@ -3,12 +3,12 @@ function [] = PlotEB(StructPath)
 load(StructPath)
 
 EB = zeros(length(UVS),1);
-MSE = zeros(length(UVS),1);
+SSE = zeros(length(UVS),1);
 
 EB = [UVS(:).EB]';
-MSE = [];
+SSE = [];
 for i = 1:length(UVS)
-    MSE(i,1) = UVS(i).GMM.MSE;
+    SSE(i,1) = UVS(i).GMM.SSE;
 end
 
 figure
@@ -16,7 +16,7 @@ subplot(2,1,1), plot((1:length(UVS)),EB,'ob')
 title('Exciton Bandwidth')
 xlabel('Run')
 ylabel('Exciton Bandwidth (eV)')
-subplot(2,1,2), plot((1:length(UVS)),MSE,'*r')
-title('Mean Square Error of Gaussian Fits')
+subplot(2,1,2), plot((1:length(UVS)),SSE,'*r')
+title('Sum Square Error of Gaussian Fits')
 
 end
