@@ -4,12 +4,13 @@ load(StructPath);
 
 for i = 1:length(UVS)
     Params = UVS(i).GMM.Params;
-    a0 = Params(1,3);
-    a1 = Params(1,2);
-    s0 = Params(3,3);
-    s1 = Params(3,2);
+    P00 = Get00Params(Params); P01 = Get01Params(Params);
+    a0 = P00(1);
+    a1 = P01(1);
+    s0 = P00(3);
+    s1 = P01(3);
     ARatio = a0*s1/(a1*s0);
-    EBi = 0.018*(1-sqrt(ARatio)) / 0.3173;
+    EBi = 0.018*(1+sqrt(ARatio)) / (0.073*-sqrt(ARatio)+0.24);
     UVS(i).EB = EBi;
 end
 

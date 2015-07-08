@@ -13,6 +13,6 @@ InitGuess = [50  20  20  20;...
 FitGauss(StructPath,InitGuess);
 ExcitonBW(StructPath);
 PlotEB(StructPath);
-PlotGMFit(StructPath,2);
+PlotGMFit(StructPath,20);
 
 end

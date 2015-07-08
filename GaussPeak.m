@@ -1,5 +1,14 @@
 function out = GaussPeak(Params,k,W)
 
+%GaussPeak Vectorized Gaussian Peak
+%   out is a vector of the output of a mixture of Gaussians given the input
+%   W, which is a vector of wavelengths.
+%   k = number of Gaussian peaks
+%   Params = [3 x k]:
+%   [Peak area 1 ...  Peak area k;
+%    Wavelength 1...  Wavelength k;
+%    Peak width 1...  Peak width k]
+
 out = 0;
 
 for i = 1:k
