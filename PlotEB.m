@@ -8,7 +8,8 @@ SSE = zeros(length(UVS),1);
 EB = [UVS(:).EB]';
 SSE = [];
 for i = 1:length(UVS)
-    SSE(i,1) = UVS(i).GMM.SSE;
+    Res = UVS(i).FCFit.Res;
+    SSE(i,1) = sum(Res.^2);
 end
 
 figure

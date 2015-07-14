@@ -1,5 +1,7 @@
 function [] = FrankCon(StructPath,run)
 
+%% OLD - Use FrankCondon instead
+
 %FrankCon Frank Condon aggregate emission spectrum
 %   out will be a vector of absorbance values
 %   EB is the exciton bandwidth of the deconvoluted spectrum
