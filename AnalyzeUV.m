@@ -19,5 +19,6 @@ FitFC(StructPath);
 
 PlotEB(StructPath);
 PlotFCFit(StructPath,20);
+PlotGMFit(StructPath,20);
 
 end
