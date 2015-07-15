@@ -1,5 +1,10 @@
 function [] = NormalizeUV(StructPath,RefName)
 
+%NormalizeUV Normalize UV Spectra Set
+%   Normalize the amorphous peak to the Reference spectra spec'd by
+%   RefName: string of the name (no file extension) of the spectrum to
+%   normalize to
+
 load(StructPath);
 RefInd = 0;
 for i = 1:length(UVS)

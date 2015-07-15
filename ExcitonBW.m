@@ -10,7 +10,7 @@ for i = 1:length(UVS)
     s0 = P00(3);
     s1 = P01(3);
     ARatio = a0*s1/(a1*s0);
-    EBi = 0.018*(1+sqrt(ARatio)) / (0.073*-sqrt(ARatio)+0.24);
+    EBi = 0.018*(1-sqrt(ARatio)) / (0.073*sqrt(ARatio)+0.24);
     UVS(i).EB = EBi;
 end
 

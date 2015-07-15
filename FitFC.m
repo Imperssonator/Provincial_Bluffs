@@ -17,7 +17,7 @@ for i = 1:length(UVS)
     Problem = struct();
     
     InitParams = [2.0 ...   Energy of 0-0 peak in eV
-                  0 ...  Exciton bandwidth in eV
+                  UVS(i).GMEB ...  Exciton bandwidth in eV
                   0.04 ... Peak width of FC Peaks
                   0.1 ...   Relative Contribution of FC peaks
                   0.5]; ...   Relative Contribution of Amorphous peak

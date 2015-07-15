@@ -6,6 +6,7 @@ EB = zeros(length(UVS),1);
 SSE = zeros(length(UVS),1);
 
 EB = [UVS(:).EB]';
+GMEB = [UVS(:).GMEB]';
 SSE = [];
 for i = 1:length(UVS)
     Res = UVS(i).FCFit.Res;
@@ -13,7 +14,7 @@ for i = 1:length(UVS)
 end
 
 figure
-subplot(2,1,1), plot((1:length(UVS)),EB,'ob')
+subplot(2,1,1), plot((1:length(UVS)),EB,'ob',(1:length(UVS)),GMEB,'oc')
 title('Exciton Bandwidth')
 xlabel('Run')
 ylabel('Exciton Bandwidth (eV)')
