@@ -7,7 +7,7 @@ function Directory = BuildDirectory(FolderName)
 % Directory: a cell array (Nx1) of strings that are the file paths of UV
 % Vis csv files
 
-%Input computer specfic pathway to the correct file
+% Input computer specfic pathway to the correct file
 if ispc
     DirectoryPath= ['C:\Users\Mike\Documents\GitHub\Provincial_Bluffs\' FolderName '\'];
 else

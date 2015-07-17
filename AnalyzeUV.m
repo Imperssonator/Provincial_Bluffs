@@ -1,7 +1,7 @@
 function StructPath = AnalyzeUV(FolderName,RefName)
 
 % Run with this line:
-% SP = AnalyzeUV(FN,RefName); load(SP);
+% FN = 'UV Vis 150630'; RefName = '0PRE'; SP = AnalyzeUV(FN,RefName); load(SP);
 
 Directory = BuildDirectory(FolderName);
 StructPath = BuildStruct(Directory);

@@ -1,4 +1,4 @@
-function out = FrankConAgg(Params,En)
+function out = FrankConAgg(Params,En,M)
 
 % InitParams = ...
 %    1: [2.0 ...   Energy of 0-0 peak in eV
@@ -21,7 +21,7 @@ FCWeight = Params(4);
 
 S = 1;                      % Huang Rhys Factor ....
 Ep = 0.18;                  % 0.18 eV C=C symmetric stretch
-M = 5;                      % whatever, 4, 6, 12, who cares after 3 really
+% M = 5;                      % whatever, 4, 6, 12, who cares after 3 really
 N = (0:M);
 
 FCPeaks = zeros(length(En),1);

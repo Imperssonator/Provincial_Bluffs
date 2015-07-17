@@ -10,10 +10,9 @@ function [] = FitFC(StructPath)
 
 load(StructPath)
 hc = 1239.842;              % eV*nm
+Weights = MakeWeights(UVS);
 
 for i = 1:length(UVS)
-    
-    FCFit = struct();
     Problem = struct();
     
     InitParams = [2.0 ...   Energy of 0-0 peak in eV
@@ -32,11 +31,13 @@ for i = 1:length(UVS)
     En = hc./Waves;
     UVS(i).En = En;
     ASpec = AmorSpec(StructPath);
+    M = 3; % Number of peaks to include in the aggregate FC portion
+    UVS(i).FCFit.M = M;
     
-    Problem.objective = @(Params,En) FrankCondon(Params,En,ASpec);
+    Problem.objective = @(Params,En) Weights.*FrankCondon(Params,En,ASpec,M);
     Problem.x0 = InitParams;
     Problem.xdata = En;
-    Problem.ydata = Abs;
+    Problem.ydata = Weights.*Abs;
     Problem.lb = LB;
     Problem.ub = UB;
     Problem.solver = 'lsqcurvefit';
@@ -73,6 +74,17 @@ B(5,:) = [0, Inf];
 
 
 LB = B(:,1); UB = B(:,2);
+
+end
+
+function Weights = MakeWeights(UVS)
+
+% Only fit FC from 475 nm to 650 nm
+
+Waves = UVS(1).TrimWaves;
+Lower = Waves>550;
+Upper = Waves<625;
+Weights = Lower&Upper;
 
 end
     
