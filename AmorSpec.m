@@ -1,6 +1,6 @@
 function out = AmorSpec(SP)
 
 load(SP)
-out = UVS(2).NormAbs;
+out = UVS(UVS(1).RefSpec).NormAbs;
 
 end

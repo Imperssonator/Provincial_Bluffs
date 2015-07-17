@@ -21,4 +21,7 @@ ylabel('Exciton Bandwidth (eV)')
 subplot(2,1,2), plot((1:length(UVS)),SSE,'*r')
 title('Sum Square Error of Gaussian Fits')
 
+
+% Order = [2 1 3 5 4 7 6 10 9 8 12 11 14 13 19 18 17 16 15 24 23 22 21 20];
+
 end

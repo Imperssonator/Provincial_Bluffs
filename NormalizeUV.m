@@ -9,7 +9,7 @@ load(StructPath);
 RefInd = 0;
 for i = 1:length(UVS)
     if strcmp(RefName,UVS(i).Name)
-        RefInd = i;
+        RefInd = i;                 % RefInd is the element of the structure corresponding to the ref spectrum
         break
     end
 end
@@ -28,7 +28,7 @@ MaxWave=TrimWaves(MaxInd); % MaxWave is the wavelength of the max absorbance
 for j = 1:length(UVS)
     Wavesj = UVS(j).TrimWaves;
     NormIndj = find(Wavesj==MaxWave); % This is the index of the jth spectra corresponding to the wavelength to be normalized
-    
+    UVS(j).RefSpec = RefInd;
     TrimAbsi = UVS(j).TrimAbs;
     NormAbs=TrimAbsi./TrimAbsi(NormIndj);
     UVS(j).NormAbs = NormAbs;

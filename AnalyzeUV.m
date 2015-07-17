@@ -9,9 +9,19 @@ TrimUV(StructPath);
 NormalizeUV(StructPath,RefName);
 PlotAllUV(StructPath);
 
-InitParams = [50  20  20  20;...
-             450 570 620 510;...
-             20  10  10  10];
+InitParams = [20;  ...  Gaussian Areas
+              510; ...  Gaussian Averages
+              10;  ...  Gaussian Width
+              
+              20;  ...  0-1 Peak
+              570;
+              10;
+              
+              20;  ...  0-0 Peak
+              620;
+              10;
+              
+              1];  ...  Amorhpous Contrib.
 FitGauss(StructPath,InitParams)
 GMExcitonBW(StructPath);
 

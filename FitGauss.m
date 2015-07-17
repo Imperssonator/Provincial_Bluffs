@@ -11,11 +11,12 @@ function [] = FitGauss(StructPath,InitParams)
 %    Peak width 1...  Peak width k]
 
 load(StructPath);
+AmorAbs = AmorSpec(StructPath);
 
 for i = 1:length(UVS)
     X = UVS(i).TrimWaves;
     Y = UVS(i).NormAbs;
-    GMMi = GMFit(X,Y,InitParams);
+    GMMi = GMFit(X,Y,InitParams,AmorAbs);
     UVS(i).GMM = GMMi;
 end
 

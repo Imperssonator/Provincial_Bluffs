@@ -82,8 +82,8 @@ function Weights = MakeWeights(UVS)
 % Only fit FC from 475 nm to 650 nm
 
 Waves = UVS(1).TrimWaves;
-Lower = Waves>550;
-Upper = Waves<625;
+Lower = Waves>0;
+Upper = Waves<640;
 Weights = Lower&Upper;
 
 end

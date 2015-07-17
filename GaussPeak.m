@@ -1,4 +1,4 @@
-function out = GaussPeak(Params,k,W)
+function out = GaussPeak(Params,k,Waves)
 
 %GaussPeak Vectorized Gaussian Peak
 %   out is a vector of the output of a mixture of Gaussians given the input
@@ -10,12 +10,13 @@ function out = GaussPeak(Params,k,W)
 %    Peak width 1...  Peak width k]
 
 out = 0;
+Params = reshape(Params,3,k);
 
 for i = 1:k
-    area = Params((i-1)*3+1);  % area of this underlying peak
-    avg = Params((i-1)*3+2);  % peak wavelength
-    sig = Params((i-1)*3+3);  % width of gaussian
-    Gi = area * 1/(sig*(2*pi)^0.5) .* exp(-(W-avg).^2./(2*sig^2));
+    area = Params(1,i);  % area of this underlying peak
+    avg = Params(2,i);  % peak wavelength
+    sig = Params(3,i);  % width of gaussian
+    Gi = area * 1/(sig*(2*pi)^0.5) .* exp(-(Waves-avg).^2./(2*sig^2));
     out = out+Gi;
 end
 
