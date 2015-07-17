@@ -26,6 +26,7 @@ FitGauss(StructPath,InitParams)
 GMExcitonBW(StructPath);
 
 FitFC(StructPath);
+FitFCAgg(StructPath);
 
 PlotEB(StructPath);
 PlotFCFit(StructPath,20);
